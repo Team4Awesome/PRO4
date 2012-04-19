@@ -1,0 +1,104 @@
+\subsubsection{Design \& implement code for SunTracker (Morten \& Henrik)}
+\paragraph{Requirements to fulfil}\mbox{}\\
+FR 1.a
+FR 1.c
+
+\paragraph{Theory}\mbox{}\\
+The SunTracker function will be operated by the system calling it with 3 variables that can be obtained through the RTC, a fail safe has been made so the system will only access the rest of the code if 4 argument counts has been given.
+\begin{verbatim}
+int main(int argc, char *argv[]) {
+	int hr;
+	int min;
+	int day;
+	if (argc != 4) {
+		printf("Usage: [hr] [min] [date int]");
+		exit(1);
+
+	}
+\end{verbatim}
+
+meaning that if the system hasn't send the 4 arguments then the code will write back to the user that he has to send the arguments in order hour - minutes - date int in order to get the sun position corresponding to the time sent.
+
+\paragraph{Implementation}\mbox{}\\
+A Makefile is made in order to convert the file type to a hex file that can run in the user space on uClinux on the LPC2478 board. 
+\begin{verbatim}
+EXEC = SolarPosition
+   OBJS = SolarPosition.o sunpos.o
+ 
+   all: $(EXEC)
+ 
+   $(EXEC): $(OBJS)
+	arm-elf-gcc $(LDFLAGS) -o $@ $(OBJS) $(LDLIBS) -elf2flt -lm
+
+SolarPosition.o : SolarPosition.c sunpos.h 
+	arm-elf-gcc -c SolarPosition.c
+ 
+sunpos.o : sunpos.c sunpos.h
+	arm-elf-gcc -c sunpos.c
+
+   romfs:
+	$(ROMFSINST)    /bin/$(EXEC)
+ 
+   clean:
+	rm -f $(EXEC) *.elf *.gdb *.o
+\end{verbatim}
+
+The executeable file that will be made is called "SolarPosition" it is composed of two object files called SolarPosition.o and Sunpos.o which in turn are composed by a header file called sunpos.h and a c file called the same as the object file itself.
+a command to clean the files made by the Makefile is also made, it will clean the executeable file itself, and all elf, gdb and object files. 
+after the executeable file it made, then it is included in the drivers of uClinux, a image file is then made and transfered to a tffp server, which the LPC2478 board connects to when booting up in order to download the code.
+
+\paragraph{Verification of requirements}\mbox{}\\
+
+\subsubsection{Relayserver}
+\paragraph{Requirements to fulfil}\mbox{}\\
+NF 3.g
+NF 3.h
+NF 3.i
+BR 4.a
+BR 4.b
+BR 4.c
+
+\paragraph{Theory}\mbox{}\\
+The Relayserver consists currently of two c files, echoserver.c and client.c.
+\subparagraph{Echoserver}
+The echoserver first checks if the system gave it the arguments that it needs, which in this case is just a port number that the client will have to match in order to connect to the echoserver. 
+The echoserver will then go through the neccessary steps that is needed to make a socket that can be connected to:
+\begin{enumerate}
+\item Creates a listening socket
+\item Set all bytes in the socket address structure to zero and fill in the relevant data members
+\item Binds the socket address to the listening socket and calls listen()
+\item Enters an infinite loop to respond to client requests and echo input
+\item Wait for a connection, then accept() it
+\item Retrieve an input line from the conneceted socket then simply write it back to the same socket and write it out on the console on the device
+\item Close the connected socket
+\end{enumerate}
+
+\subparagraph{Client}
+\begin{verbatim}
+int main(int argc, char *argv[])
+{
+    if (argc < 3) {
+       fprintf(stderr,"usage %s hostname port\n", argv[0]);
+       exit(0);
+    }
+\end{verbatim}
+The Client.c file requires 3 arguments in order to work, and the counter is below these 3 arguments, then the Client file will respond with the proper syntax to make it work which is "Hostname Port", where the hostname is the ip of the desired device that the client want to connect to, and port is a port decided by both the echoserver and the client.
+
+\paragraph{Implementation}\mbox{}\\
+Again a Makefile is made.
+\begin{verbatim}
+EXEC = client
+   OBJS = client.o
+ 
+   all: $(EXEC)
+ 
+   $(EXEC): $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LDLIBS)
+ 
+   romfs:
+	$(ROMFSINST)    /bin/$(EXEC)
+ 
+   clean:
+	rm -f $(EXEC) *.elf *.gdb *.o
+\end{verbatim}
+in this case an executeable file called client is made from an object file called client.o which in turn is made from the c-file client.c. 

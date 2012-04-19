@@ -1,0 +1,41 @@
+\documentclass[12pt,a4paper]{report}	
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{lscape}						%Landscape enabled. Doh!
+\usepackage{longtable}					%To set table as multi-page
+\usepackage{anysize}					%To set margins below
+\marginsize{2cm}{2cm}{1cm}{3cm} 		%left, right, top, bot margin
+\usepackage{float}						%Control table float
+\usepackage{standalone}					%Clear formatting in other documents included
+\usepackage{color}						%This and next for the \hilight keyword. 
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+\setcounter{secnumdepth}{3} %To get nummerated \subsubsection{title}
+\setcounter{tocdepth}{3}	%To get nummerated \subsubsection{title}
+
+\begin{document}
+\chapter{Timeboxes}
+Of cause all teammembers will help eachother and discuss the different elements throughout the project, but the members of the team must choose a topic to specialize in. Below a short description is made to divide the members into groups of specialization, acting as guidelines for who is in charge of the development in the different areas:
+\begin{itemize}
+\item \textbf{Morten - Software} in charge of C/C++ and Linux programming, in cooperation with Henrik.
+\item \textbf{Henrik - Software specialization} with most experience in C/C++ algorithms be cooperating with Morten.
+\item \textbf{Jacob - DSP and Analog specialization} will be in charge of the DSP and Analog area, in cooperation with Anders.
+\item \textbf{Anders - FPGA and DSP specialization} will cooperate together with Jacob in implementing and computing the elements containing DSP, Analog technique and FPGA design.
+\end{itemize}
+This is just as guidelines, everyone will of cause have knowledge about the elements the other team members are developing.
+
+
+\input{tb1}
+
+
+
+
+\input{tb2}
+
+
+\end{document}

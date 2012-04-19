@@ -1,0 +1,297 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{anysize}
+\marginsize{2cm}{2cm}{1cm}{3cm} %left, right, top, bot margin
+\usepackage{enumitem}
+
+\title{Requirements}
+\author{Jacob Kristensen\\Morten Bøndinge Koch\\Anders Bech\\ Henrik Holm Christensen\\EDE - Electronic Design Engineer\\AU-Herning\\}
+\date{17/02-12}
+
+
+
+\begin{document}
+
+\chapter{requirements}
+Below all the requirements are listed. They are divided into four major categories; Functional, non-functional, behavioural and performance requirements. They are derived from our customer needs / customer requirements.\\
+They are further divided into smaller groups, describing the category, could be safety, environmental etc.. First Below there is an example of how requirements are referred to throughout this report:\\
+
+Functional Requirements [FR]
+\begin{enumerate}
+\item Safety [FR.1]
+\begin{enumerate}
+	\item The system shall be safe. [FR.1.a]
+	\begin{enumerate}
+		\item Very safe. [FR.1.a.i]
+	\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+CR - Customer Requirements (Needs)\\
+FR - Functional Requirements\\
+NR - Non-functional Requirements\\
+BR - Behavioural Requirements\\
+PR - Performance Requirements\\ 
+
+\section{Customer Requirements / Customer Needs}
+\begin{enumerate}
+\item	Safety
+\begin{enumerate}
+	\item	Emergency button, that shall cut-off power when pressed.
+	\item	Tamper proof.
+	\item	The system shall be safe to operate
+\end{enumerate}
+\item	Environmental
+\begin{enumerate}
+	\item	The system shall be used at the facility of AU-Herning. 
+	\item	The system shall be placed outside.
+	\item	The system-controller shall be placed inside a shed.
+\end{enumerate}
+\item	Usability
+\begin{enumerate}
+	\item	The system shall function without user interaction.
+	\item	The system shall log information.
+	\item	The system shall be as efficient as possible.
+	\item	The system shall convert solar energy to electricity.
+	\item	The system shall act as a showcase.
+	\item	The system shall function without major problems for a duration of 8 years.
+	\item	The system cost shall not exceed the user budget.
+\end{enumerate}
+\end{enumerate}
+\newpage
+\section{Functional Requirements}
+\textit{What has to be done?}
+\begin{enumerate}
+\item	Usability
+\begin{enumerate}
+	\item	The solar panel shall follow the position of the sun.
+	\item	The system shall convert solar power into electrical power.
+	\item	The system shall use a data look-up table to get the correct sun position at the correct time
+	\item	The system shall log information about the system
+	\item	The system shall have a control panel for manual control of the solar panel
+	\item	The system shall have a webpage where information can be seen.
+	\item	The system shall be supplied from the light grid
+\end{enumerate}
+\item	Safety
+\begin{enumerate}
+	\item	The system shall detect if extra resistance is applied to the motors.
+	\begin{enumerate}
+		\item	The motors shall stop if the resistance is too high
+		\end{enumerate}
+	\item	The emergency button shall be red and conspicuous
+	\item	Dangerous parts of electronics shall be isolated from user interaction
+	\item	Dangerous moving parts shall be isolated from user interaction
+	\item	The motors of the system shall be limited in movement
+	\item	The system shall resist the weathers of Denmark
+\end{enumerate}
+\item Teacher Given
+\begin{enumerate}
+	\item The ARM7 must present an electrical interface through the EMC (Extern memory controller) on the LPC2478.
+	\begin{enumerate}
+		\item The buswidth must be configured as 16bit.
+		\item The minimum necessary number of wait states shall be used.
+		\item The electrical interface shall be able to handle 16bit read and write.
+	\end{enumerate}
+	\item The FPGA shall be implemented as host interface.
+	\begin{enumerate}
+		\item Capable of decoding 16 bit read and write from the LPC2478.
+		\item Able to drive two or more LEDS through one or more memory mapped 16 bit registers.
+		\item The implementation must contain a test-bench, containing a BFM (Bus Functional Model) capable of simulating CPU read and writes.
+	\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\section{Non- Functional}
+\textit{Judge the operation of the system. }
+\begin{enumerate}
+\item	Usability
+\begin{enumerate}
+	\item	The system shall log input and output of the regulator, motor position and sun position
+	\item 	The physical control board shall be placed inside a shed
+	\item	A manual control panel shall be implemented
+\end{enumerate}
+\item	Safety
+\begin{enumerate}
+	\item	Emergency buttons shall be implemented.
+	\begin{enumerate}
+		\item	One shall be placed on the motor / solar panel
+		\item	One shall be placed on the system-controller
+		\item	The emergency buttons shall be visible from at least 5 meters away
+	\end{enumerate}
+	\item	A current sensor shall be implemented to measure the resistance of the motors.
+	\item	The system shall follow the CE mark requirements
+\end{enumerate}
+\item	Environmental
+\begin{enumerate}
+	\item	The system shall be placed in a place with the most sun hours possible to increase efficiency
+\end{enumerate}
+
+\item Teacher given
+\begin{enumerate}
+	\item Each team shall write a small module design, before implementation.
+	\begin{enumerate}
+		\item The module design shall be approved during timebox-deployment, BEFORE implementation begins.
+	\end{enumerate}
+	\item Your VHDL design shall be implemented in following files:
+	\begin{enumerate}
+		\item name.vhd containing the RTL implementation.
+		\item tb\_name.vhd containing a testbench for your module(s) above.
+		\item name.uch containing the user constrains for your FPGA implementation.
+	\end{enumerate}
+	\item You must implement one or more IP cores in the FPGA, capable of performing system critical tasks, suitable for implementing as HWW.
+	\item you shall implement uClinux driver(s) for the IP above.
+	\begin{enumerate}
+		\item The drivers must be implemented as a kernelspace loadable driver.
+		\item Acess to the driver shall be from within a userspace program.
+		\item The kernel driver and userspace program must be automatically loaded upon start of the RTOS.
+		\item Your software package shall contain, as minimum, the following files
+		\begin{enumerate}
+			\item A makefile for the kernel module.
+			\item A makefile for the userspace program.
+			\item Necessary header (.h) and implementation files (.c) for the modules.
+			\item Correct or create the necessary files required to load the above modules during boot.
+		\end{enumerate}
+	\end{enumerate}
+	\item a "low level" prototype, implemented without RTOS, must be deployed and approved (preferably before the uClinux driver is created).
+	\item Bus plots and measurements, performed on the Agilent 1692A logicanalyzer, must be used as a basis for the analysis and design.
+	
+	
+	\item Relay server
+	\begin{enumerate}
+		\item Able to accept multiple telnet connections
+		\begin{enumerate}
+			\item Shall accept both tcp and upd connections
+			\item Shall be able to connect to the daemon on the target
+			\item Shall relay traffic unmodified between the telnet client and the daemon
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	\item Daemon
+	\begin{enumerate}
+	\item Shall accept one tcp connection
+		\begin{enumerate}
+			\item Shall transfer the received data to the HW-interface' driver
+			\item Shall transfer data from the HW to the client
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	
+	\item Driver
+	\begin{enumerate}
+		\item Shall offer a standard interface in /dev
+		\begin{enumerate}
+			\item Shall implement open, close, ioctrl, read and write
+		\end{enumerate}
+		\item Shall accept interrupts from HW
+	\end{enumerate}
+	
+	
+	
+\end{enumerate}
+\end{enumerate}
+
+
+\section{Behavioural Requirements}
+\textit{What to do when an action occurs.}
+\begin{enumerate}
+\item	Usability 
+\begin{enumerate}
+	\item	The motors shall turn the solar panel when the sun changes position
+\end{enumerate}
+\item	Safety
+\begin{enumerate}
+	\item	The emergency button shall cut the main power.
+	\item	The motors shall stop if the resistance applied to them is higher than normal.
+	\begin{enumerate}
+		\item	The motor shall retry to obtain the right position after 10 seconds of it failing due to high resistance.
+		\item	A red LED will be turned on after the system has tried to obtain the right position and failed twice
+	\end{enumerate}
+	\item	The system shall inform the user of any error through the web page.
+\end{enumerate}
+\item	Communication
+\begin{enumerate}
+	\item	When a ping is received from the Energy Hub, the system shall answer.
+	\item	The system shall check if a ping isn't received
+	\begin{enumerate}
+		\item	If a ping isn't received the system shall shut down and inform the user
+	\end{enumerate}
+	\item	The system shall deactivate automatic control of the solar panel and enter manual control when a button on the psychical control board is pressed
+\end{enumerate}
+\item Teacher given
+\begin{enumerate}
+	\item Relay Server
+	\begin{enumerate}
+		\item Handling more than one connection
+		\begin{enumerate}
+			\item If more than one active let the others wait - give a message
+			\item When a blocking connection is terminated the next waiting connection shall be connected to the daemon
+		\end{enumerate}
+	\end{enumerate}
+	\item Daemon
+	\begin{enumerate}
+		\item Shall start at system start
+	\end{enumerate}
+	\item Driver
+	\begin{enumerate}
+		\item Interrupt handling
+		\begin{enumerate}
+			\item When interrupted the state of the HW shall be made ready on the read interface
+		\end{enumerate}
+	\end{enumerate}
+	
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+\section{Performance Requirements}
+\textit{How well does the system do? (Judge the Functional Requirements )}
+\begin{enumerate}
+\item	Usability
+\begin{enumerate}
+	\item	The solar panel shall not face more than [10\%] in the wrong direction of the sun
+\end{enumerate}
+\item	Safety
+\begin{enumerate}
+	\item	The resistance of the motors shall not exceed [10\%] of normal.
+	\item	The emergency button shall cut the power within [X] seconds
+	\item	The emergency button shall have diameter of 40mm
+	\item	The motors stop if the resistance exceed [X\%] of normal
+	\begin{enumerate}
+		\item	The motor shall stop trying to obtain the correct position after 2 tries.
+		\end{enumerate}
+	\item	The horizontal part of the motor of the system shall only be able to turn from east to west (180 degrees)
+	\item	The vertical part of the motor of the system shall be able to turn from -5 degrees to 90 degrees
+	\item	The system-controller shall not exceed 1m3
+\end{enumerate}
+\item	Communication
+\begin{enumerate}
+	\item	When a ping is received, the system shall respond within 500 milliseconds.
+	\begin{enumerate}
+		\item	The system checks for pings every 5 second
+		\item	If no ping is received the system will shut down within [X] seconds
+	\end{enumerate}
+	\item	The system shall reactivate automatic control of the system when no button has been pressed on the physical control board for 10 minutes.
+	\item	The motors shall update their position every [X] minutes
+	\item	The system shall log information every 10 seconds and send an average every minute to the hub
+	\item	The system components which take more than 2 hours to switch shall have a life span of 8 years or greater
+	\item	The output from the solar panel shall be regulated to 30V with a tolerance of 10\%
+	\item	The system noise shall not exceed 50dB
+\end{enumerate}
+\item	Financial
+\begin{enumerate}
+	\item	The system components which are financially heavy , shall have a life span of 8 years or greater
+	\item	The system costs shall not exceed [X] kroner.
+\end{enumerate}
+\end{enumerate}
+
+% Bottom of the page
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass[12pt,a4paper]{report}	
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{lscape}						%Landscape enabled. Doh!
+\usepackage{longtable}					%To set table as multi-page
+\usepackage{anysize}					%To set margins below
+\marginsize{2cm}{2cm}{1cm}{3cm} 		%left, right, top, bot margin
+\usepackage{float}						%Control table float
+\usepackage{epstopdf}
+
+\setcounter{secnumdepth}{3} %To get nummerated \subsubsection{title}
+\setcounter{tocdepth}{3}	%To get nummerated \subsubsection{title}
+
+\begin{document}
+\section{Timebox 3}
+\subsection{Outline for this timebox}
+
+\begin{enumerate}
+\item Design PCB for the Voltage \& Current measurement circuit
+\item Design circuit for motor drivers
+\item Inspect Regulator block
+\item Design PWM circuit
+
+\item Implement logger
+\item Implement Relay server
+\end{enumerate}
+
+
+\subsection{Development Plan}
+Jacob will be in charge of the first 4 steps, designing the circuits and the PCB, and inspect the regulator, to see exactly what is needed.\\
+Morten and Henrik will be developing the software for the logger, and Morten will also finish the development of the Relay Server. 
+
+\subsection{Results}
+
+
+\input{tb3morten}
+
+\input{tb3anders}
+
+\input{tb3henrik}
+
+\input{tb3jacob}
+
+\end{document}

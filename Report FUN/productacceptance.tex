@@ -1,0 +1,355 @@
+\chapter{Product Acceptance}
+\subsubsection {Functional Requirements}
+
+\begin{longtable}{|p{0.9cm}|p{6cm}|p{10cm}|p{6cm}|}
+
+\hline \textbf{\#} & \textbf{Requirement} & \textbf{Verification} & \textbf{To meet the\newline requirement} \\
+\endfirsthead
+
+\hline \textbf{\#} & \textbf{Requirement} & \textbf{Verification} & \textbf{To meet the\newline requirement} \\
+\endhead
+
+\hline \multicolumn{4}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline
+\endlastfoot
+
+%FUNCTIONAL USABILITY
+\hline  	FR\newline 1.a & The solar panel shall follow the position of the sun. 
+			& Observe the solar panel for a day.
+			& The solar panel shall point towards the sun as the sun moves across the sky.\\ 
+\hline  	FR\newline1.b & The system shall convert solar power into electrical power. 
+			& The solar panel is placed outside pointing towards the sun. The output is then measured with a multimeter. The multimeter probes shall be attatched at the two wires, connected to the bag of the solar panel. 
+			& The multimeter shall measure a voltage when connected.\\ 
+\hline		FR\newline1.c & The system shall use a data look-up table to get the correct sun position at the correct time.
+			& 
+			& \\
+\hline  	FR\newline1.d & The system shall log information about the system 
+			& Check the log file, and note how much data is logged. The system then runs for a limited period. afterwards the log is checked again.
+			& The log shall contain more data than at the first check.\\ 
+\hline  	FR\newline1.e & The system shall have a control panel for manual control of the solar panel. 
+			& Inspect the system, and see if a manual control panel can be found. Press every button on the control panel for manual control of the solar panel. 
+			& The solar panel shall move as requested by the user.\\ 
+\hline  	FR\newline1.f & The system shall have a webpage where information can be seen. 
+			& Open a browser, enter the given address and look for information regarding the solar panel. 
+			& Information regarding the solar panel shall be avaliable.\\ 
+\hline  	FR\newline1.g & The system shall be supplied from the light grid. 
+			& Disconnect all other current carrying wires except the wire connected to the light grid. 
+			& The system shall continue to run without any complications.\\ 
+
+%FUNCTIONAL SAFETY
+\hline 		FR\newline2.a	& The system shall detect if extra resistance is applied to the motors.
+			& Resistance is applied to the motors 
+			& The system shall register the increase in resistance and show an error message \\ 
+\hline  	FR\newline2.a.i & The motors shall stop if the resistance is too high 
+			& Resistance is applied to the motors 
+			& The motors shall stop when the resistance is applied \\ 
+\hline  	FR\newline2.b & The emergency button shall be red and conspicuous.
+			& Gather 3-5 test subjects and ask them about the color of the button and where it is. 
+			& All test subjects shall agree on the color of the button is red and they shall be able to find it within 1 second \\ 
+\hline  	FR\newline2.c & Dangerous parts of electronics shall be isolated from user interaction 
+			& Look for exposed wires and electronical parts 
+			& No exposed wires and electronical parts must be found \\ 
+\hline  	FR\newline2.d & Dangerous moving parts shall be isolated from user interaction 
+			& Observe how the solar panel and interface are placed according to each other 
+			& The solar panel shall be placed at least 3 meter from the interface. \\ 
+\hline  	FR\newline2.e & The motors of the system shall be limited in movement 
+			& Move the solar panel from the leftmost to the rightmost position and time the transistion.
+			& The transistion period shall be 30 seconds\\ 
+\hline  	FR\newline& The system shall resist the weathers of Denmark 
+			& Place the system in controlled environment. Change the temperature to respectively -35 and 40 degrees. 
+			& The system shall continue to run without any complications for a duration of 1 hour\\ 
+
+%FUNCTIONAL Teacher given Requirements
+\hline 		FR\newline3.a & The ARM7 must present an electrical interface through the EMC (Extern memory controller) on the LPC2478.
+			&
+			&\\
+\hline 		FR\newline3.a.i & The buswidth must be configured as 16bit.
+			&
+			&\\
+\hline 		FR\newline3.a.ii & The minimum necessary number of wait states shall be used.
+			&
+			&\\
+\hline 		FR\newline3.a.iii & The electrical interface shall be able to handle 16bit read and write.
+			& 
+			&\\
+\hline 		FR\newline3.b & The FPGA shall be implemented as host interface.
+			&
+			&\\
+\hline 		FR\newline3.b.i & Capable of decoding 16 bit read and write from the LPC2478.
+			&
+			&\\
+\hline 		FR\newline3.b.ii & Able to drive two or more LEDS through one or more memory mapped 16 bit registers.
+			&
+			&\\
+\hline 		FR\newline3.b.iii & The implementation must contain a test-bench, containing a BFM (Bus Functional Model) capable of simulating CPU read and writes.
+			&
+			&\\
+
+%NON-FUNCTIONAL USABILITY
+\hline  	NR\newline 1.a & The system shall log the input and the output of the regulator 
+			& The system runs for a limited period. afterwards the log is checked to confirm that data has been stored. 
+			& The log shall contain the desired data.\\ 
+\hline  	NR\newline 1.b & The physical control board shall be placed inside a shed 
+			& Localize the physical control board for the solar panel. 
+			& The physical control board shall be placed inside a shed\\ 
+\hline  	NR\newline 1.c & A manual control panel shall be implemented  
+			& Look for a manual control panel.
+			& A manual control panel shall be found.\\  
+
+%NON-FUNCTIONAL SAFETY
+\hline 		NR\newline 2.a & Emergency Buttons shall be implemented.
+			&
+			&\\
+\hline  	NR\newline 2.a.i & One shall be placed on the motor / solar panel. 
+			& Look for a emergency button at the motor / solar panel. 
+			& An emergency button shall be found.\\ 
+\hline  	NR\newline 2.a.ii & One shall be placed on the system controller. 
+			& Look for a emergency button at the system controller. 
+			& An emergency button shall be found.\\ 
+\hline  	NR\newline 2.a.iii & The emergency buttons shall be visible from at least 5 meters away 
+			& Gather a group 3-5 test subjects and place them at least 5 meters from the system.
+			& All test subjects shall be able to\\ 
+\hline  	NR\newline 2.b & A current sensor shall be implemented to measure the resistance of the motors 
+			& Look for a current sensor at the system controller. 
+			& A emergency button shall be found\\ 
+\hline 		NR\newline 2.c & The system shall follow the CE mark requirements
+			&
+			&\\
+
+%NON-FUNCTIONAL ENVIRONMENTAL
+\hline  	NR\newline 3.a & The system shall be placed in a place with the most sun hours possible to increase efficiency  
+			& Measure the intensity of the sun light in places where the solar panel might be placed.
+			& The light intensity measured must exceed XXX lux\\ 
+
+%NON.FUNCTIONAL TEACHER GIVEN
+
+\hline  	NR\newline 4.a & Each team shall write a small module design, before implementation.
+			& 
+			&\\
+\hline  	NR\newline 4.a.i & The module design shall be approved during timebox-deployment, BEFORE implementation begins.
+			&
+			&\\
+\hline  	NR\newline 4.b & Your VHDL design shall be implemented in following files:
+			&
+			&\\
+\hline  	NR\newline 4.b.i & name.vhd containing the RTL implementation.
+			&
+			&\\
+\hline  	NR\newline 4.b.ii & tb\_name.vhd containing a testbench for your module(s) above.
+			&
+			&\\
+\hline  	NR\newline 4.b.iii & name.uch containing the user constrains for your FPGA implementation.
+			&
+			&\\
+\hline  	NR\newline 4.c & You must implement one or more IP cores in the FPGA, capable of performing system critical tasks, suitable for implementing as HWW.
+			&
+			&\\
+\hline  	NR\newline 4.d & you shall implement uClinux driver(s) for the IP above.
+			&
+			&\\
+\hline  	NR\newline 4.d.i & The drivers must be implemented as a kernelspace loadable driver.
+			&
+			&\\
+\hline  	NR\newline 4.d.ii & Acess to the driver shall be from within a userspace program.
+			&
+			&\\
+\hline  	NR\newline 4.d.iii & The kernel driver and userspace program must be automatically loaded upon start of the RTOS.
+			&
+			&\\
+\hline  	NR\newline 4.d.iv & Your software package shall contain, as minimum, the following files
+			&
+			&\\
+\hline  	NR\newline 4.d.iv.A & A makefile for the kernel module.
+			&
+			&\\
+\hline  	NR\newline 4.d.iv.B & A makefile for the userspace program.
+			&
+			&\\
+\hline  	NR\newline 4.d.iv.C & Necessary header (.h) and implementation files (.c) for the modules.
+			&
+			&\\
+\hline  	NR\newline 4.d.iv.D & Correct or create the necessary files required to load the above modules during boot.
+			&
+			&\\
+\hline  	NR\newline 4.e & a "low level" prototype, implemented without RTOS, must be deployed and approved (preferably before the uClinux driver is created).
+			&
+			&\\
+\hline  	NR\newline 4.f & Bus plots and measurements, performed on the Agilent 1692A logicanalyzer, must be used as a basis for the analysis and design.
+			&
+			&\\
+\hline  	NR\newline 4.g & Relay server
+			&
+			&\\
+\hline  	NR\newline 4.g.i & Able to accept multiple telnet connections
+			&
+			&\\
+\hline  	NR\newline 4.g.i.A & Shall accept both tcp and upd connections
+			&
+			&\\
+\hline  	NR\newline 4.g.i.B & Shall be able to connect to the daemon on the target
+			&
+			&\\
+\hline  	NR\newline 4.g.i.C & Shall relay traffic unmodified between the telnet client and the daemon
+			&
+			&\\
+\hline  	NR\newline 4.h & Daemon
+			&
+			&\\
+\hline  	NR\newline 4.h.i & Shall accept one tcp connection
+			&
+			&\\
+\hline  	NR\newline 4.h.i.A & Shall transfer the received data to the HW-interface' driver
+			&
+			&\\
+\hline  	NR\newline 4.h.i.B & Shall transfer data from the HW to the client
+			&
+			&\\
+\hline  	NR\newline 4.i & Driver
+			&
+			&\\
+\hline  	NR\newline 4.i.i & Shall offer a standard interface in /dev
+			&
+			&\\
+\hline  	NR\newline 4.i.A & Shall implement open, close, ioctrl, read and write
+			&
+			&\\
+\hline  	NR\newline 4.i.ii & Shall accept interrupts from HW
+			&
+			&\\
+
+
+
+%BEHAVIORAL USABILITY
+\hline  	BR\newline 1.a & The motors shall turn the solar panel when the sun changes position 
+			& Watch the solar panel for 30 minutes during daylight 
+			& The solar panel shall move as the sun moves across the sky\\ 
+
+%BEHAVIORAL SAFETY
+\hline  	BR\newline 2.a & The emergency button shall cut the main power 
+			& Press the emergency stop and measure with a multimeter if the main power supply is disabled. 
+			& No current must flow when the emergency stop is pressed.\\ 
+\hline  	BR\newline 2.b & The motors shall stop if the resistance applied to them is higher than normal. 
+			& Apply resistance to the motors of the solar panel.
+			& The motors shall stop immediately. \\ 
+\hline  	BR\newline 2.b.i & The motor shall retry to obtain the right position after 10 seconds of it failing due to high resistance. 
+			& Apply resistance to the motors of the solar panel until they stop and then remove the resistance. Observe what happens 10 seconds after the motors have stopped.
+			& The motors shall start moving after 10 seconds.\\ 
+\hline  	BR\newline 2.b.ii & A red LED will be turned on after the system has tried to obtain the right position and failed twice 
+			& Apply resistance to the motors of the solar panel until they stop.
+			& The LED shall turn on after 10 seconds with the resistance applied.\\ 
+\hline  	BR\newline 2.c & The system shall inform the user of any error through the webpage 
+			& Apply resistance to the motors of the solar panel. An error message should be sent to the interface informing the user about the error. 
+			& The error message shall appear on the webpage immediately.\\ 
+
+
+%BEHAVIORAL COMMUNICATION
+\hline  	BR\newline 3.a & When a ping is received from the Energy Hub, the system shall answer 
+			& Measure the data input and output with a oscilloscope. 
+			& The system shall answer every time a ping is recieved.\\ 
+\hline  	BR\newline 3.b & The system shall check if a ping is received 
+			& 
+			& \\ 
+\hline  	BR\newline 3.c & The system shall deactivate automatic control of the solar panel and enter manual control when a button on the psychical control board is pressed  
+			& Press a button on the physical control board.
+			& The manual control shall be entered\\ 
+
+
+%BEHAVIORAL TEACHER GIVEN
+\hline  	BR\newline 4.a & Relay Server 
+			& 
+			& \\
+\hline  	BR\newline 4.a.i & Handling more than one connection 
+			& 
+			& \\
+\hline  	BR\newline 4.a.i.A & If more than one active let the others wait - give a message 
+			& 
+			& \\
+\hline  	BR\newline 4.a.i.B & When a blocking connection is terminated the next waiting connection shall be connected to the daemon 
+			& 
+			& \\
+\hline  	BR\newline 4.b & Daemon 
+			& 
+			& \\
+\hline  	BR\newline 4.b.i & Shall start at system start 
+			& 
+			& \\
+\hline  	BR\newline 4.c & Driver 
+			& 
+			& \\
+\hline  	BR\newline 4.c.i & Interrupt handling 
+			& 
+			& \\
+\hline  	BR\newline 4.c.i.A & When interrupted the state of the HW shall be made ready on the read interface 
+			& 
+			& \\
+
+%PERFORMANCE USABILITY
+\hline  	PR\newline 1.a & The solar panel shall not face more than 10\% in the wrong direction of the sun 
+			& Measure the angle of the solar panel and compare it with the location of the sun at the given time. 
+			& The angle of the solar panel shall not be more than 10\% off.\\ 
+
+%PERFORMANCE SAFETY
+\hline  	PR\newline 2.a & The resistance of the motors shall not exceed 10\% of normal 
+			&  
+			& \\ 
+\hline  	PR\newline 2.b & The emergency button shall cut the power within 500 milliseconds 
+			& Press the emergency stop and measure the time passing before the system shut down. 
+			& The system shall shut down within 500 milliseconds\\ 
+\hline  	PR\newline 2.c & The emergency button shall have diameter of 40mm 
+			& Measuere the diameter with a ruler. 
+			& The result of the measurement shall be 40mm.\\ 
+\hline  	PR\newline 2.d & The motors stop if the resistance exceed 60\% of normal 
+			& Apply a resistance equal to 70 \% of the normal resistance.
+			& The motors shall stop immediatly\\ 
+\hline  	PR\newline 2.d.i & The motor shall stop trying to obtain the correct position after 2 tries 
+			& Apply resistance to the motors of the solar panel for 1 minute. 
+			& The motors shall not be moving when the resistance is removed.\\ 
+\hline  	PR\newline 2.e & The horizontal part of the motor of the system shall only be able to turn from east to west (180 degrees)  
+			& Manually turn the solar panel to it's leftmost and rightmost position.
+			& The solar panel shall only turn 180 degrees\\ 
+\hline  	PR\newline 2.f & The vertical part of the motor of the system shall be able to turn from -5 degrees to 90 degrees 
+			& Manually turn the solar panel to it's uppermost and lowest position.
+			& The solar panel shall only turn from -5 degrees to 90 degrees.\\ 
+\hline  	PR\newline 2.g & The system-controller shall not exceed 1m3 
+			& Measure the dimensions of the system controller with a tape measure.  
+			& The size shall not exceed 1m3.\\ 
+
+%PERFORMANCE COMMUNICATION
+\hline  	PR\newline 3.a & When a ping is received, the system shall respond within 500 milliseconds 
+			& Watch the data input and output with a oscilloscope and measure the time between recieving a ping and sending response back. 
+			& The time elapsed shall not exceed 500 milliseconds\\ 
+\hline  	PR\newline 3.a.i & The system checks for pings every 5 second 
+			&  
+			& \\ 
+\hline  	PR\newline 3.a.ii & If no ping is received the system will shut down within 5 seconds. 
+			& Disconnect the power hub to disable the ping signal.
+			& The system shall shutdown within 5 seconds after the disconnection.\\ 
+\hline  	PR\newline 3.b & The system shall reactivate automatic control of the system when no button has been pressed on the physical control board for 10 minutes.  
+			& Press a button on the physical control panel and wait for 10 minutes. 
+			& The system shall move the solar panel into the right position when the 10 minutes have elapsed.\\ 
+\hline  	PR\newline 3.c & The motors shall update their position every 5 minutes. 
+			& Measure the data output from the motors with a oscilliscope for 10 minutes.  
+			& A position update shall be sent 2-3 times during the 10 minutes.\\ 
+\hline  	PR\newline 3.d & The system shall log information every 10 seconds and send an average every minute to the hub. 
+			& Connect a oscilliscope to the relevant data connections. 
+			& Information to the system shall be send every 10 seconds and an average shall be sent to the hub every minute.\\ 
+\hline  	PR\newline 3.e & The system components which take more than 2 hours to switch shall have a life span of 8 years or greater. 
+			& Replace every part in the system one by one and time the procedure. 
+			& Every item that takes more than 2 hours to switch shall have a life span of 8 years or greater.\\ 
+\hline  	PR\newline 3.f & The output of the solar panel shall be regulated to 30V with a tolerance of 10 \%.
+			& 
+			& .\\ 
+\hline  	PR\newline 3.g & The system noise shall not exceed 50dB.
+			& 
+			& .\\ 
+
+%PERFORMANCE FINANCIAL
+\hline  	PR\newline 3.e & The system components which are financially heavy, shall have a life span of 8 years or greater. 
+			& 
+			& .\\ 
+\hline  	PR\newline 3.h & The system cost shall not exceed [X] kroner.
+			& 
+			& .\\ 
+\end{longtable} 

@@ -1,0 +1,40 @@
+\subsubsection{Implementation of the wishbone interface (Jacob)} 
+\paragraph{Requirements to fulfil}\mbox{}\\
+FR.3.b.i\\
+
+\paragraph{Theory}\mbox{}\\
+
+
+\subsubsection{Design circuit for Log Module (Jacob)}
+\paragraph{Requirements to fulfil}\mbox{}\\
+FR.1.d\\
+NR.1.a
+\paragraph{Theory}\mbox{}\\
+
+Decoupling capacitors:
+Yes decoupling is used to minise the effect of of fast-edges and as you say you dont have any, but they are really needed for analogue IF the supply rails to the chip are noisy, if the rails are noisy then the output signal is going to be more noisy then you would otherwise expect.
+The other point of putting the de-coupling down is to "de-couple" the track inductance 
+
+if it is a big board then there will be significant track inductance and if you try to take a blat of current from that rail, it will locally sag (equally you stop taking higher current it will rise) the cap will attempt to cancel out the indcutive nature of the tracks
+This track inductance is only a concern when there are sufficiently high frequency currents traveling in it or large steps (edges) of current draw. Digital switching circuits are the best example of this. Low BW opamps, aren't performing any abrupt changes on the power supply.\\
+\\
+Instrumentational amplifiers\\
+AMP04\\
+The AMP04 is a single-supply instrumentation amplifier
+designed to work over a +5 volt to ±15 volt supply range. It
+offers an excellent combination of accuracy, low power consumption,
+wide input voltage range, and excellent gain
+performance.
+
+
+The equation for the voltage divider is (left side of dotted line):
+\begin{equation}
+V_o=\frac{R_2}{R_1+R_2}*V_i
+\end{equation}
+
+OP-amp is configured as a buffer (right side of dotted line), which has a gain of 1, very high input impedance, thus it draws minimum current form the load. 
+\paragraph{Implementation}\mbox{}\\
+
+
+\paragraph{verification of requirements}\mbox{}\\
+

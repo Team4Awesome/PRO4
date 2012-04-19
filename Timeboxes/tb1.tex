@@ -1,0 +1,35 @@
+\documentclass[12pt,a4paper]{report}	
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{lscape}						%Landscape enabled. Doh!
+\usepackage{longtable}					%To set table as multi-page
+\usepackage{anysize}					%To set margins below
+\marginsize{2cm}{2cm}{1cm}{3cm} 		%left, right, top, bot margin
+\usepackage{float}						%Control table float
+
+\setcounter{secnumdepth}{3} %To get nummerated \subsubsection{title}
+\setcounter{tocdepth}{3}	%To get nummerated \subsubsection{title}
+
+\begin{document}
+\section{Timebox 1}
+
+\subsection{Outline for this timebox}
+\begin{enumerate}
+\item Module design of entire system. (Detailed)
+\item Design CpuInterface, for communication between FPGA and LPC.
+\item Implement CpuInterface.
+\end{enumerate}
+
+\subsection{Development Plan}
+
+
+\subsection{Results}
+
+\input{tb1jacob}
+
+\end{document}

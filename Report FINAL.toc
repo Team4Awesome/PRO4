@@ -1,0 +1,9 @@
+\contentsline {chapter}{\numberline {1}Executive Summary (Jacob)}{1}
+\contentsline {chapter}{\numberline {2}Preface (Jacob)}{2}
+\contentsline {chapter}{\numberline {3}Version History}{3}
+\contentsline {chapter}{\numberline {4}Introduction}{5}
+\contentsline {chapter}{\numberline {5}Problem Statement}{7}
+\contentsline {section}{\numberline {5.1}Teacher given requirements}{8}
+\contentsline {chapter}{\numberline {6}Material and Methods (Theory)}{9}
+\contentsline {chapter}{\numberline {7}Discussion}{11}
+\contentsline {subsection}{\numberline {7.0.1}Sun Tracking Method: Look-up Data table}{12}

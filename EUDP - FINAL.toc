@@ -1,0 +1,35 @@
+\contentsline {chapter}{\numberline {1}Executive Summary (Jacob)}{1}
+\contentsline {chapter}{\numberline {2}Preface (Jacob)}{2}
+\contentsline {chapter}{\numberline {3}Version History}{3}
+\contentsline {chapter}{\numberline {4}Introduction}{5}
+\contentsline {chapter}{\numberline {5}Results}{7}
+\contentsline {section}{\numberline {5.1}PreProject}{8}
+\contentsline {subsection}{\numberline {5.1.1}Rich Picture}{8}
+\contentsline {subsection}{\numberline {5.1.2}Story Telling}{8}
+\contentsline {subsection}{\numberline {5.1.3}Story cards}{9}
+\contentsline {subsection}{\numberline {5.1.4}Preliminary use cases}{10}
+\contentsline {subsection}{\numberline {5.1.5}Stakeholder Analysis}{11}
+\contentsline {subsection}{\numberline {5.1.6}System Definition}{11}
+\contentsline {subsubsection}{Weather conditions}{12}
+\contentsline {subsubsection}{Curious visitors}{12}
+\contentsline {subsubsection}{Convert voltage to desired output}{12}
+\contentsline {subsubsection}{Plot important data}{12}
+\contentsline {subsubsection}{Right Position}{12}
+\contentsline {section}{\numberline {5.2}Launch Phase}{12}
+\contentsline {subsection}{\numberline {5.2.1}General Analysis (Jacob)}{13}
+\contentsline {subsubsection}{Block Analysis (Jacob)}{13}
+\contentsline {subsubsection}{Use Case Analysis (Morten)}{20}
+\contentsline {subsubsection}{Interface Analysis (Morten \& Jacob)}{22}
+\contentsline {subsubsection}{Function Analysis (Jacob)}{25}
+\contentsline {subsubsection}{Function Analysis}{26}
+\contentsline {subsubsection}{System Dynamics (Henrik)}{30}
+\contentsline {subsection}{\numberline {5.2.2}General Architecture Design}{33}
+\contentsline {subsubsection}{Design Criteria (Morten)}{33}
+\contentsline {subsubsection}{Sequence Diagram (Jacob)}{34}
+\contentsline {subsection}{\numberline {5.2.3}Technical Platform (All)}{35}
+\contentsline {subsection}{\numberline {5.2.4}Contracting}{36}
+\contentsline {subsubsection}{Time Schedule (Jacob)}{36}
+\contentsline {subsubsection}{Product Acceptance}{36}
+\contentsline {section}{\numberline {5.3}Realization Phase}{36}
+\contentsline {subsection}{\numberline {5.3.1}Strategy and Planning}{36}
+\contentsline {subsubsection}{Risk Management}{36}
